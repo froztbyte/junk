@@ -1,0 +1,9 @@
+add user router1.example.net          {configtrack}
+add password router1.example.net      {moonkittens}
+add method router1.example.net        ssh
+add autoenable router1.example.net    {1}
+
+add user gateway1.example.net          {configtrack}
+add password gateway1.example.net      {moonkittens}
+add method gateway1.example.net        telnet
+add autoenable gateway1.example.net    {1}

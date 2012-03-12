@@ -1,0 +1,4 @@
+#router 1, some x86 hardware we loaded tik onto ourselves
+router1.example.net:mikrotik_x86:up
+#decommissioned gateway router
+gateway1.example.net:mikrotik_rb:down
