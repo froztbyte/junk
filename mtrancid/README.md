@@ -19,11 +19,11 @@ What's important here
 Notes
 -----
 
-One modification added to force TERM to 'xterm', but I'm still doubtful as to whether it actually helps with the [timeout issue](http://forum.mikrotik.com/viewtopic.php?f=2&t=51312)
+*  One modification added to force TERM to 'xterm', but I'm still doubtful as to whether it actually helps with the [timeout issue](http://forum.mikrotik.com/viewtopic.php?f=2&t=51312)
 
-This entire repo is of course to be used with [Rancid](http://shrubbery.net/rancid/)
+*  This entire repo is of course to be used with [Rancid](http://shrubbery.net/rancid/)
 
-Setup information is not covered in here as the Rancid docs do that
+*  Setup information is not covered in here as the Rancid docs do that
 
 Acknowledgements
 ----------------
