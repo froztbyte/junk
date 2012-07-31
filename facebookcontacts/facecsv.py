@@ -1,4 +1,5 @@
 #!/usr/bin/python
+""" code by froztbyte, (C) WTFPL 2012 """
 import argparse
 from os import getcwd
 
