@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+# exit if we don't have anything to work on
+if [ $# -ne 1]; then
+  echo "Please drop a URL in as first arg"
+  exit 1
+fi
+
+# set some paths
+DEFOB="${HOME}/bin/search-deobfuscate.py"
+
+# try see what we use to paste to the clipboard
+# apparently pbcopy should work. it's broken on my Mountain Lion at the moment
+case ${OSTYPE} in
+	(darwin*) CLIP="${HOME}/bin/clip -"
+		;;
+	(linux-gnu*) CLIP="/usr/bin/pbcopy"
+		;;
+	(*) CLIP="${HOME}/bin/clip -"
+		;;
+esac
+
+url="$1"
+$DEFOB "${url}" | $CLIP
