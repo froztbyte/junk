@@ -1,7 +1,7 @@
 Google Search De-obfuscate
 ==========================
 
-Because I got tired of having to do this step manually.
+Because I got tired of having to do this step manually (copy, paste, select output, copy, re-paste to intended destination).
 And I got annoyed that I'd always have to see their URL tracking crap.
 
 What's important here
@@ -16,8 +16,14 @@ Notes
 
 *  This probably breaks on gnome at the moment. I'll find someone to find a relevant command
 *  I also can't get pbcopy to work properly on ML right now. 'cept I can't care right now.
+*  Feel free to turn it into a greasemonkey script or something
 
 Acknowledgements
 ----------------
 
 This code brought to you by Suits.
+
+License
+-------
+
+MIT.

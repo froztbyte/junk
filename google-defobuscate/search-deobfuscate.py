@@ -1,4 +1,12 @@
 #!/usr/bin/python
+"""
+google-search-deobfuscate
+
+argv[1] is the input, stdout is filtered
+
+code by froztbyte. MIT license, 2012
+"""
+
 from urlparse import urlparse
 from urllib import unquote_plus
 from sys import argv
