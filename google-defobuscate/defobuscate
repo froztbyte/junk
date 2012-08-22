@@ -12,9 +12,9 @@ DEFOB="${HOME}/bin/search-deobfuscate.py"
 # try see what we use to paste to the clipboard
 # apparently pbcopy should work. it's broken on my Mountain Lion at the moment
 case ${OSTYPE} in
-	(darwin*) CLIP="${HOME}/bin/clip -"
+	(darwin*) CLIP="/usr/bin/pbcopy"
 		;;
-	(linux-gnu*) CLIP="/usr/bin/pbcopy"
+	(linux-gnu*) CLIP="${HOME}/bin/clip -"
 		;;
 	(*) CLIP="${HOME}/bin/clip -"
 		;;
