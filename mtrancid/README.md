@@ -5,6 +5,8 @@ Hey, look at this. It's a Thing. With Stuff!!
 
 This repo contains the parts you need to enable rancid to deal with Mikrotik routers, both the x86 and arm flavours.
 
+Note: this isn't necessary anymore as of 2.3.8 (and perhaps an earlier version). The necessary information seems to have been merged into rancid upstream, and the device type is 'mikrotik'.
+
 What's important here
 ---------------------
 
