@@ -1,0 +1,16 @@
+#!/usr/bin/python
+"""
+easily decode post-encoded data because it's boilerplate and fuckit
+
+argv[1] is the input, stdout is filtered
+
+code by froztbyte. MIT license, 2012
+"""
+
+from urllib import unquote_plus
+from sys import argv
+import pprint as pp
+
+params = dict([part.split('=') for part in argv[1].split('&')])
+# pp = pprint.PrettyPrinter
+print pp.pformat(params)
