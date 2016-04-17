@@ -1,0 +1,33 @@
+mdadm --zero-superblock /dev/sda; mdadm --zero-superblock /dev/sdb
+
+parted -s /dev/sda \
+  mklabel gpt \
+  mkpart primary 0 5MB \
+  mkpart primary 5MB 2GB \
+  mkpart primary 2GB 2950GB \
+  mkpart primary 2950GB 3000GB \
+  set 1 bios_grub on
+
+parted -s /dev/sdb \
+  mklabel gpt \
+  mkpart primary 0 5MB \
+  mkpart primary 5MB 2GB \
+  mkpart primary 2GB 2950GB \
+  mkpart primary 2950GB 3000GB \
+  set 1 bios_grub on
+
+mdadm --create /dev/md0 -l 1 --bitmap=internal --raid-devices 2 /dev/sda2 /dev/sdb2; mdadm --create /dev/md1 -l 1 --bitmap=internal --raid-devices 2 /dev/sda3 /dev/sdb3; mdadm --create /dev/md2 -l 1 --bitmap=internal --raid-devices 2 /dev/sda4 /dev/sdb4
+
+cryptsetup -c aes-xts-plain64 -s 512 --use-random -y luksFormat /dev/md1; cryptsetup -c aes-xts-plain64 -s 512 --use-random -y luksFormat /dev/md2; 
+
+cryptsetup luksOpen /dev/md1 root; cryptsetup luksOpen /dev/md2 swap
+
+mkdir /mnt/debian; mkfs.xfs -f /dev/mapper/root; mkfs.ext4 /dev/md0; mkswap /dev/mapper/swap;
+
+mount /dev/mapper/root /mnt/debian; mkdir /mnt/debian/boot; mount /dev/md0 /mnt/debian/boot;
+
+debootstrap jessie /mnt/debian http://ftp.uk.debian.org/debian/
+
+mount -t proc none /mnt/debian/proc; mount -o bind /dev /mnt/debian/dev
+
+LANG=C chroot /mnt/debian /bin/bash
